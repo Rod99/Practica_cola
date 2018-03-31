@@ -3,9 +3,9 @@
 #include "gotoxy.h"
 #include "colores.h"
 #include <conio.h>
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
-void dibujar_marco();
 
+void menu();
+void dibujar_marco();
 int main(int argc, char *argv[]) {
 	system("portada.exe");
 	
@@ -16,9 +16,38 @@ int main(int argc, char *argv[]) {
 	color(1,7);
 	dibujar_marco();
 	
-	
+	color(0,15);
+	menu();
 	getch();
 	return 0;
+}
+
+void menu()
+{
+	int opc;
+	gotoxy(50,14);printf("Elige una opcion:");
+	gotoxy(50,16);printf("1.- Supermercado");
+	gotoxy(50,18);printf("2.- Sistema Operativo");
+	gotoxy(50,20);printf("3.- Banco");
+	gotoxy(50,22);scanf("%d",&opc);
+	
+	system("cls");
+	
+	switch(opc)
+	{
+		case 1:
+			system("supermercado.exe");
+			break;
+		case 2:
+			system("");
+			break;
+		case 3:
+			system("");
+			break;
+		default:
+			gotoxy(50,24);printf("No seleccionaste una opcion valida");
+			exit(1);
+	}
 }
 
 void dibujar_marco()
